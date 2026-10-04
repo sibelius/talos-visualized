@@ -218,12 +218,15 @@ export default function Page() {
         Plain NetworkPolicy is owned by namespace owners and can only allow. Platform teams usually want guardrails that tenants
         can&apos;t override (&quot;monitoring can always scrape&quot;, &quot;nobody reaches the cloud metadata IP&quot;). SIG
         Network&apos;s policy API working group defines cluster-scoped <b className="text-ink">AdminNetworkPolicy</b> and{" "}
-        <b className="text-ink">BaselineAdminNetworkPolicy</b> that sit before and after NetworkPolicy. They are still alpha
-        CRDs (installed separately, and being reworked upstream), with support in some CNIs — check yours before relying on them.
+        <b className="text-ink">BaselineAdminNetworkPolicy</b> that sit before and after NetworkPolicy. They are alpha
+        CRDs (installed separately), with support in some CNIs — check yours before relying on them. Upstream has since merged
+        both into a single <b className="text-ink">ClusterNetworkPolicy</b> (<span className="font-mono">policy.networking.k8s.io/v1alpha2</span>,
+        network-policy-api v0.2.0, April 2026) with a <span className="font-mono">tier: Admin | Baseline</span> field; ANP/BANP are no
+        longer actively developed, so expect CNIs to migrate.
       </Section>
       <TierStack />
       <div className="mt-4 grid gap-4 lg:grid-cols-2">
-        <Code lang="yaml" title="AdminNetworkPolicy + BaselineAdminNetworkPolicy (v1alpha1)" code={ANP} />
+        <Code lang="yaml" title="AdminNetworkPolicy + BaselineAdminNetworkPolicy (v1alpha1, superseded by ClusterNetworkPolicy)" code={ANP} />
         <Code lang="yaml" title="CiliumNetworkPolicy: L7 HTTP rules + FQDN egress" code={CILIUM} />
       </div>
       <div className="mt-4 grid gap-4 lg:grid-cols-2">

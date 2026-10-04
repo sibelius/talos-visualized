@@ -157,7 +157,8 @@ customization:
       - siderolabs/iscsi-tools
       - siderolabs/util-linux-tools
 ---
-# machine-config patch
+# machine-config patch (default data path on EPHEMERAL; Longhorn's
+# Talos >=1.10 guide uses a UserVolume at /var/mnt/longhorn instead)
 machine:
   kubelet:
     extraMounts:

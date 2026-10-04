@@ -94,8 +94,8 @@ talosctl -n 10.0.0.21 pcap -i eth0        # packet capture, no tcpdump install`}
       </Panel>
       <div className="mt-4">
         <Callout title="GRUB vs systemd-boot">
-          Older and BIOS installs use GRUB with A/B kernels on the <code className="font-mono">BOOT</code> partition. Recent
-          Talos releases install with systemd-boot on UEFI machines, where each slot is a Unified Kernel Image (kernel +
+          Older and BIOS installs use GRUB with A/B kernels on the <code className="font-mono">BOOT</code> partition. Since
+          Talos 1.10, new installs on UEFI machines use systemd-boot, where each slot is a Unified Kernel Image (kernel +
           initramfs + cmdline, optionally signed for Secure Boot) on the EFI partition. The A/B idea is the same.
         </Callout>
       </div>

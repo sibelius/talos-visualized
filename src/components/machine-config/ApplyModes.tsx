@@ -203,7 +203,9 @@ export function ApplyModes() {
       </div>
       <p className="text-[12px] text-faint">
         Change categories follow the Talos docs on which fields support live apply; when in doubt, <code className="font-mono">--dry-run</code> prints
-        the diff and whether a reboot would be needed. Try-mode timer runs at 10× speed here.
+        the diff and whether a reboot would be needed. Modes shown are those of Talos ≤1.13; Talos 1.14 removed{" "}
+        <code className="font-mono">--mode=reboot</code>, and the default now applies without rebooting (reboot-only changes wait for
+        your next reboot). Try-mode timer runs at 10× speed here.
       </p>
     </div>
   );

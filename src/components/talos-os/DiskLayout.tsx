@@ -17,11 +17,11 @@ type Part = {
 const PARTS: Part[] = [
   {
     id: "EFI",
-    size: "~100 MiB+",
+    size: "100 MiB (GRUB) · ~1.1 GiB (UKI)",
     grow: 1.2,
     color: "var(--color-f1)",
     mount: "/boot/EFI (UEFI)",
-    holds: "Bootloader. With systemd-boot (UEFI installs on recent Talos) the A/B Unified Kernel Images live here too.",
+    holds: "Bootloader. With systemd-boot (new UEFI installs since Talos 1.10) the A/B Unified Kernel Images live here too, so it is sized to absorb BIOS + BOOT.",
     why: "Firmware needs a FAT partition it can read. Everything after this is Talos-owned.",
   },
   {
@@ -31,7 +31,7 @@ const PARTS: Part[] = [
     color: "var(--color-faint)",
     mount: "—",
     holds: "GRUB core image for legacy BIOS boot.",
-    why: "Only used on BIOS / GRUB installs.",
+    why: "Only created in the GRUB layout; systemd-boot/UKI installs have no BIOS or BOOT partition.",
   },
   {
     id: "BOOT",

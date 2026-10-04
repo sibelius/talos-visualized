@@ -57,7 +57,7 @@ metadata:
 
 const CILIUM_YAML = `
 # Helm values: l2announcements.enabled=true, kubeProxyReplacement=true
-apiVersion: cilium.io/v2alpha1
+apiVersion: cilium.io/v2          # v2alpha1 on older Cilium releases
 kind: CiliumLoadBalancerIPPool
 metadata:
   name: lan-pool

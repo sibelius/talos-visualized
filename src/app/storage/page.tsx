@@ -236,7 +236,7 @@ export default function Page() {
               <b className="text-ink">Filling /var hurts the node.</b> A runaway local-path volume competes with etcd and image storage on
               the same partition, and kubelet starts evicting pods under disk pressure. With Talos 1.10+ you can carve a separate
               partition with a <code className="font-mono">UserVolumeConfig</code> (mounted under{" "}
-              <code className="font-mono">/var/mnt/&lt;name&gt;</code>) and point local storage there. You can also cap EPHEMERAL&apos;s size
+              <code className="font-mono">/var/mnt/&lt;name&gt;</code>, which Talos already mounts into kubelet, so no extraMounts needed for local-path) and point local storage there. You can also cap EPHEMERAL&apos;s size
               with a <code className="font-mono">VolumeConfig</code>.
             </li>
             <li>

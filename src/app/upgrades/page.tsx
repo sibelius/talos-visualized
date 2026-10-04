@@ -35,6 +35,8 @@ export default async function Page() {
         <Code
           title="upgrade Talos"
           code={`# one node at a time; waits and streams progress by default
+# (installer/<id> is the legacy path; Image Factory now prefers
+#  <platform>-installer/<id>, e.g. metal-installer or nocloud-installer)
 talosctl -n 10.0.0.10 upgrade \\
   --image factory.talos.dev/installer/<schematic-id>:v1.11.3
 
